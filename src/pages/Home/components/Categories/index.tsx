@@ -63,7 +63,7 @@ const Categories = () => {
               key={category.id}
             >
               <div className="relative bg-slate-100 w-full h-96">
-                <img src={category.img} className="object-cover  h-96" />
+                <img src={category.img} className="object-cover  w-full h-full" />
               </div>
               <h1 className="mt-8 font-light text-xl tracking-wide">
                 {category.name}
