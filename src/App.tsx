@@ -7,18 +7,23 @@ import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import ErrorPage from "./components/ErrorPage";
 import RootLayout from "./components/Layout";
+import { useState } from "react";
+import { categories} from "./pages/Home/components/Categories";
 
 function App() {
-
+const [searchQuery, setSearchQuery] = useState("");
+ const filteredCategories = categories.filter((category) =>
+   category.name.toLowerCase().includes(searchQuery.toLowerCase())
+ );
    const router = createBrowserRouter([
      {
        path: "/",
-       element: <RootLayout />,
+       element: <RootLayout searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>,
        errorElement: <ErrorPage />,
        children: [
          {
            path: "/",
-           element: <Home />,
+           element: <Home filteredCategories={filteredCategories}/>,
          },
          {
            path: "/shop",

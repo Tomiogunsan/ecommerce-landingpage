@@ -6,15 +6,21 @@ import { FcLikePlaceholder } from "react-icons/fc";
 import { CiBellOn } from "react-icons/ci";
 import MobileMenu from "../MobileMenu";
 
-const Navbar = () => {
+const Navbar = ({
+  searchQuery,
+  setSearchQuery,
+}: {
+  searchQuery: string;
+  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
+}) => {
   return (
-    <div className="h-20 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative">
+    <div className="h-20 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative bg-[#fff]">
       {/* mobile  */}
       <div className="h-full flex items-center justify-between md:hidden">
         <Link to="/">
           <div className="text-2xl tracking-wide">TOMIA</div>
         </Link>
-        <MobileMenu/>
+        <MobileMenu />
       </div>
       {/* desktop  */}
       <div className="hidden md:flex items-center justify-between gap-8 h-full">
@@ -35,7 +41,7 @@ const Navbar = () => {
         </div>
         {/* right */}
         <div className="w-2/3 xl:w-1/2 flex items-center justify-between gap-8">
-          <SearchBar />
+          <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
           <div className="flex gap-2">
             <CgProfile size={24} />
             <FaShoppingCart size={24} />

@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 
-
-const categories = [
+export type ICategoryProps = { id: number; img: string; name: string }[];
+// eslint-disable-next-line react-refresh/only-export-components
+export const categories = [
     {
         id:1,
         img: '/joggers.svg',
@@ -43,37 +44,46 @@ const categories = [
         name: 'Dress',
     },
     {
-        id: 8,
+        id: 9,
         img: '/sofa pic.svg',
         name: 'Furnitures',
     },
 ]
-const Categories = () => {
+const Categories = ({
+  filteredCategories,
+}: {
+  filteredCategories: ICategoryProps;
+}) => {
   return (
-    <div className="mt-24 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
-      <h1 className="text-2xl mb-12">
-        Categories
-      </h1>
+    <div className="mt-24 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 pb-14">
+      <h1 className="text-2xl mb-12">Categories</h1>
       <div className="px-4 overflow-x-scroll scrollbar-hide ">
         <div className="flex gap-4 md:gap-8">
-          {categories.map((category) => (
-            <Link
-              to="/shop"
-              className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 xl:w-1/6"
-              key={category.id}
-            >
-              <div className="relative bg-slate-100 w-full h-96">
-                <img src={category.img} className="object-cover  w-full h-full" />
-              </div>
-              <h1 className="mt-8 font-light text-xl tracking-wide">
-                {category.name}
-              </h1>
-            </Link>
-          ))}
+          {filteredCategories.length > 0 ? (
+            filteredCategories.map((category) => (
+              <Link
+                to="/shop"
+                className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 xl:w-1/6"
+                key={category.id}
+              >
+                <div className="relative bg-slate-100 w-full h-96">
+                  <img
+                    src={category.img}
+                    className="object-cover  w-full h-full"
+                  />
+                </div>
+                <h1 className="mt-8 font-light text-xl tracking-wide">
+                  {category.name}
+                </h1>
+              </Link>
+            ))
+          ) : (
+            <p className="text-center text-2xl">No  categories results found</p>
+          )}
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Categories

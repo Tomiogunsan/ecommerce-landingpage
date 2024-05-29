@@ -1,16 +1,20 @@
-import Categories from "./components/Categories"
+import Categories, { ICategoryProps } from "./components/Categories"
 import FeaturedProduct from "./components/FeaturedProduct"
 import Slider from "./components/Slider"
 
 
-const Home = () => {
+const Home = ({
+  filteredCategories,
+}: {
+  filteredCategories: ICategoryProps;
+}) => {
   return (
     <div>
-        <Slider/>
-        <FeaturedProduct/>
-        <Categories/>
+      <Slider />
+      <FeaturedProduct />
+      <Categories filteredCategories={filteredCategories}/>
     </div>
-  )
-}
+  );
+};
 
 export default Home
