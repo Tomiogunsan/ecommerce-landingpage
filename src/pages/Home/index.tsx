@@ -1,8 +1,15 @@
+import Categories from "./components/Categories"
+import FeaturedProduct from "./components/FeaturedProduct"
+import Slider from "./components/Slider"
 
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>
+        {/* <Slider/> */}
+        <FeaturedProduct/>
+        {/* <Categories/> */}
+    </div>
   )
 }
 

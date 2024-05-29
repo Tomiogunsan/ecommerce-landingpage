@@ -4,6 +4,7 @@ import { CgProfile } from "react-icons/cg";
 import { FaShoppingCart } from "react-icons/fa";
 import { FcLikePlaceholder } from "react-icons/fc";
 import { CiBellOn } from "react-icons/ci";
+import MobileMenu from "../MobileMenu";
 
 const Navbar = () => {
   return (
@@ -13,6 +14,7 @@ const Navbar = () => {
         <Link to="/">
           <div className="text-2xl tracking-wide">TOMIA</div>
         </Link>
+        <MobileMenu/>
       </div>
       {/* desktop  */}
       <div className="hidden md:flex items-center justify-between gap-8 h-full">

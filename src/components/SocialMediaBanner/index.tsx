@@ -7,7 +7,7 @@ import { FaYoutube } from "react-icons/fa";
 
 const SocialMediaBanner = () => {
   return (
-    <div className="h-20  bg-[#94004f] text-[#fff] font-bold">
+    <div className="hidden lg:block h-20  bg-[#94004f] text-[#fff] font-bold">
       <div className="flex justify-between items-center px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 pt-6">
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
