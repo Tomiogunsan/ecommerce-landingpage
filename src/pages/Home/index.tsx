@@ -6,8 +6,8 @@ import Slider from "./components/Slider"
 const Home = () => {
   return (
     <div>
-        {/* <Slider/> */}
-        {/* <FeaturedProduct/> */}
+        <Slider/>
+        <FeaturedProduct/>
         <Categories/>
     </div>
   )
