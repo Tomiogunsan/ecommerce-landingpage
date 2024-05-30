@@ -1,30 +1,39 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+// import Swiper from "swiper";
+// import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
 
 const slides = [
   {
     id: 1,
-    title: "New Summer Sales Collections",
-    description: "Sales! 30% discount",
-    img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: " Furniture Sales Collection ",
+    description: "Sales! up to 25% discount",
+    img: "/Group 3742.svg",
+    img2: '/sofa.svg',
     url: "/",
-    bg: "bg-gradient-to-r from-[#d3d2c4] to-pink-50 ",
+    bg: "bg-gradient-to-r from-[#DCA3B7] to-[#f3e1e1] ",
   },
+
   {
     id: 2,
-    title: " Household Sales ",
-    description: "Up to -30% discount!.",
-    img: "/hero-4-png-picture.png",
+    title: "New Summer Sales Collections",
+    description: "Sales! 30% discount",
+    img: "/19.svg",
     url: "/",
-    bg: "bg-gradient-to-r from-pink-50 to-yellow-50 ",
+    bg: "bg-gradient-to-r from-[#f3e1e1] to-pink-50 ",
   },
+
   {
     id: 3,
     title: " Cosmetics Sales ",
     description: "Sale! up to 40% off",
-    img: "/baby-oil.svg",
+    img: "/cosmetics.svg",
     url: "/",
-    bg: "bg-gradient-to-r from-[#fecdd2] to-blue-50 ",
+    bg: "bg-gradient-to-r from-[#eae9e7] to-[#d8d5d0] ",
   },
   {
     id: 4,
@@ -36,11 +45,11 @@ const slides = [
   },
   {
     id: 5,
-    title: " Furniture Sales !!!",
-    description: "Sale! up to 50% off",
-    img: "/Tooltip.svg",
+    title: " Household Sales ",
+    description: "Up to -30% discount!.",
+    img: "/household.svg",
     url: "/",
-    bg: "bg-gradient-to-r from-[#ebebeb] to-[#f3e1e1] ",
+    bg: "bg-gradient-to-r from-[#eae9e7] to-[#eae9e7] ",
   },
 ];
 
@@ -54,24 +63,25 @@ const Slider = () => {
   //     return () => clearInterval(interval);
   //   }, []);
 
-//   const imageWidth = (index) => {
-//     switch (index) {
-//         case 0:
-//            return 'w-full',
-//         case 1:
-//            return 'w-[50%]',
-//         case 2:
-//            return 'w-full',
-//         case 3:
-//            return 'w-full',
-//         case 4:
-//            return 'w-full',
-//     }
-//   }
+  const imageWidth = (index: number) => {
+    switch (index) {
+      case 1:
+        return "h-1/2 xl:w-[65%] xl:h-1/2 ";
+      case 2:
+        return "h-1/2 xl:w-1/2 xl:h-full";
+      case 3:
+        return "h-1/2 xl:w-1/2 xl:h-full";
+      case 4:
+        return "h-1/2 xl:w-1/2 xl:h-full";
+      case 5:
+        return " h-1/2 xl:w-1/2 xl:h-full";
+    }
+  };
+  // className = " h-[100vh] lg:h-[calc(100vh-80px)]  overflow-hidden";
   return (
-    <div className="h-[calc(100vh-80px)] overflow-hidden">
+    <div className="h-[calc(100vh-160px)] overflow-hidden ">
       <div
-        className="w-max h-full flex transition-all ease-in-out duration-1000"
+        className="w-max h-full flex items-center transition-all ease-in-out duration-1000 relative"
         style={{ transform: `translateX(-${current * 100}vw)` }}
       >
         {slides.map((slide) => (
@@ -80,35 +90,32 @@ const Slider = () => {
             key={slide.id}
           >
             {/* TEXT CONTAINER */}
-            <div className=" m-20 flex flex-col justify-center gap-8 items-center text-center`">
-              
-                <h2 className="text-xl lg:text-3xl 2xl:text-5xl">
-                  {slide.description}
-                </h2>
-                <h1 className="text-5xl lg:text-6xl 2xl:text-8xl font-semibold text-center">
-                  {slide.title}
-                </h1>
-                <Link to={slide.url}>
-                  <button className="rounded-md bg-black text-white py-3 px-4 ">
-                    SHOP NOW
-                  </button>
-                </Link>
-              
+            <div className="h-1/2 xl:w-1/2 xl:h-full flex flex-col items-center justify-center gap-8 2xl:gap-12 text-center bg-red-600">
+              <h2 className="text-xl lg:text-3xl 2xl:text-5xl">
+                {slide.description}
+              </h2>
+              <h1 className="text-5xl lg:text-6xl 2xl:text-8xl font-semibold">
+                {slide.title}
+              </h1>
+              <Link to={slide.url}>
+                <button className="rounded-md bg-black text-white py-3 px-4 ">
+                  SHOP NOW
+                </button>
+              </Link>
             </div>
             {/* IMAGE CONTAINER */}
-            <div className="h-1/2 xl:w-1/2 xl:h-full relative">
+            <div className="h-1/2 xl:w-1/2 xl:h-full flex items-center justify-center absolute top-[50%] right-0 bg-blue-600">
               <img
                 src={slide.img}
-                // alt=""
+                alt=""
                 // fill
                 // sizes="100%"
-                className="object-cover  mt-[120px]"
+                className="block  absolute  bottom-1/2 top-1/2 -translatee-x-[50%] -translate-y-[50%] object-contain h-full w-full "
               />
             </div>
           </div>
         ))}
       </div>
-      {/*  */}
       <div className="absolute m-auto left-1/2 bottom-8 flex gap-4">
         {slides.map((slide, index) => (
           <div
