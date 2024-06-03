@@ -7,7 +7,7 @@ const Shop = () => {
       <h1>Shop</h1>
       <Link to="/">
         <button className="rounded-md bg-black text-white py-3 px-4 pb-4 ">
-          GO TO HOMEPAGE
+          GO TO HOMEPAGEyuuu
         </button>
       </Link>
     </div>
